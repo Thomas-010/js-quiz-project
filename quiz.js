@@ -44,11 +44,31 @@ function toonvragen() {
     for (let i = 0; i < opties.length; i++){
         const knop = document.createElement("button");
         knop.textContent = opties[i];
+
+        knop.addEventListener("click" , function() {
+            ctrlAntwoord(opties[i]);
+        });
+        
         antwoordenContainer.appendChild(knop);
     }
 }
 
+function ctrlAntwoord(gekozenAntwoord){
+    const resultaatElemenent = document.getElementById("resultaat");
+
+    if (gekozenAntwoord === juisteantwoorden[huidigevraag]) {
+        resultaatElemenent.textContent = "Dat klopt!";
+        score++;
+        document.getElementById("score").textContent = "Je score is: " + score;
+    } 
+    else {
+        resultaatElemenent.textContent = "Helaas dat is fout!";
+    }
+}
+
+
 toonvragen();
+
 
 console.log(vragen)
 console.log(antwoordopties)
