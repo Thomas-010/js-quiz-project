@@ -29,6 +29,27 @@ const juisteantwoorden = [
 let huidigevraag = 0;
 let score = 0;
 
+
+
+function toonvragen() {
+    const vraagElement = document.getElementById("vraag");
+    const antwoordenContainer = document.getElementById("antwoorden");
+
+    antwoordenContainer.innerHTML = "";
+
+    vraagElement.textContent = vragen[huidigevraag];
+
+    const opties = antwoordopties[huidigevraag];
+
+    for (let i = 0; i < opties.length; i++){
+        const knop = document.createElement("button");
+        knop.textContent = opties[i];
+        antwoordenContainer.appendChild(knop);
+    }
+}
+
+toonvragen();
+
 console.log(vragen)
 console.log(antwoordopties)
 console.log(juisteantwoorden)
