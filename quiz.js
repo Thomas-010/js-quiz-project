@@ -53,19 +53,6 @@ function toonvragen() {
     }
 }
 
-function resetQuiz() {
-
-    huidigevraag = 0;
-    score = 0;
-    document.getElementById("score").textContent = "Je score is: 0";
-    document.getElementById("resultaat").textContent = "";
-    document.getElementById("volgendevraag").disabled = false;
-    document.getElementById("herstartquiz").addEventListener("click", resetQuiz);
-    toonvragen();
-
-}
-document.getElementById("herstartquiz").addEventListener("click", resetQuiz);
-
 function ctrlAntwoord(gekozenAntwoord){
     const resultaatElemenent = document.getElementById("resultaat");
 
