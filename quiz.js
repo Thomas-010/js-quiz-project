@@ -31,12 +31,18 @@ let score = 0;
 
 
 
+function toonProgressie() {
+    const progressieElement = document.getElementById("progressie");
+    progressieElement.textContent = "Vraag " + (huidigevraag + 1) + " van " + vragen.length;
+}
+
 function toonvragen() {
     const vraagElement = document.getElementById("vraag");
     const antwoordenContainer = document.getElementById("antwoorden");
 
     antwoordenContainer.innerHTML = "";
 
+    toonProgressie();
     vraagElement.textContent = vragen[huidigevraag];
 
     const opties = antwoordopties[huidigevraag];
@@ -78,8 +84,20 @@ function volgendeVraag() {
 }
 
 document.getElementById("volgendevraag").addEventListener("click", volgendeVraag);
+document.getElementById("herstartquiz").addEventListener("click", herstartQuiz);
 
 toonvragen();
+
+function herstartQuiz() {
+    huidigevraag = 0;
+    score = 0; 
+    document.getElementById("score").textContent = "Je score is: " + score;
+    document.getElementById("resultaat").textContent = "";
+    document.getElementById("volgendevraag").disabled = false;
+    toonvragen();
+}
+
+
 
 
 console.log(vragen)
