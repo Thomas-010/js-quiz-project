@@ -66,6 +66,18 @@ function ctrlAntwoord(gekozenAntwoord){
     }
 }
 
+function volgendeVraag() {
+    if (huidigevraag < vragen.length - 1) {
+        huidigevraag++;
+        document.getElementById("resultaat").textContent = "";
+        toonvragen();
+    } else {
+        document.getElementById("resultaat").textContent = "Quiz afgerond!";
+        document.getElementById("volgendevraag").disabled = true;
+    }
+}
+
+document.getElementById("volgendevraag").addEventListener("click", volgendeVraag);
 
 toonvragen();
 
